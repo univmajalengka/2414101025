@@ -1,0 +1,343 @@
+:root {
+    --primary: #007f73;
+    --primary-dark: #005e55;
+    --accent: #ff7b00;
+    --bg: #f5f7fb;
+    --text: #1f2933;
+    --muted: #6b7280;
+    --border: #d0d7e2;
+}
+
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body.admin-body,
+body.admin-login-body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+.container {
+    width: 100%;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+/* LOGIN */
+.admin-login-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.admin-login-wrapper {
+    background-color: #fff;
+    padding: 24px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    width: 100%;
+    max-width: 360px;
+}
+
+.admin-login-wrapper h2 {
+    margin-bottom: 4px;
+    color: var(--primary-dark);
+}
+
+.admin-login-wrapper .subtitle {
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 14px;
+}
+
+.admin-login-form .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.admin-login-form label {
+    font-size: 13px;
+    margin-bottom: 4px;
+}
+
+.admin-login-form input {
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    font-size: 14px;
+}
+
+.btn-admin-primary {
+    width: 100%;
+    margin-top: 6px;
+    padding: 9px 0;
+    border-radius: 8px;
+    background-color: var(--primary);
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn-admin-primary:hover {
+    background-color: var(--primary-dark);
+}
+
+.alert {
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.alert-error {
+    background-color: #fee2e2;
+    color: #b91c1c;
+}
+
+.hint {
+    margin-top: 10px;
+    font-size: 12px;
+    color: var(--muted);
+}
+
+/* HEADER ADMIN */
+.admin-header {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    color: #fff;
+    padding: 10px 0;
+    margin-bottom: 16px;
+}
+
+.admin-header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-brand {
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-brand .brand-title {
+    font-weight: bold;
+}
+
+.admin-brand .brand-subtitle {
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+.admin-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    margin-left: 12px;
+    padding: 4px 8px;
+    border-radius: 999px;
+}
+
+.admin-nav a:hover,
+.admin-nav a.active {
+    background-color: rgba(255,255,255,0.2);
+}
+
+.logout-link {
+    border: 1px solid rgba(255,255,255,0.6);
+}
+
+/* MAIN */
+.admin-main h1 {
+    margin-bottom: 12px;
+    font-size: 22px;
+}
+
+/* cards */
+.admin-cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0,1fr));
+    gap: 14px;
+    margin: 14px 0 24px;
+}
+
+.admin-card {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 14px 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    border: 1px solid var(--border);
+}
+
+.admin-card-number {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 6px 0;
+    color: var(--primary-dark);
+}
+
+.admin-card-note {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+/* tabel */
+.admin-table-wrapper {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    border: 1px solid var(--border);
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.admin-table th,
+.admin-table td {
+    border-bottom: 1px solid #e5e7eb;
+    padding: 6px 8px;
+    text-align: left;
+}
+
+.admin-table th {
+    background-color: #f3f4f6;
+    font-weight: 600;
+}
+
+.admin-table tr:nth-child(even) td {
+    background-color: #f9fafb;
+}
+
+.admin-table a {
+    color: var(--primary-dark);
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.admin-table a:hover {
+    text-decoration: underline;
+}
+
+/* form pencarian data pemesanan */
+.admin-search-form {
+    margin: 10px 0 14px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+
+.admin-search-form input[type="text"] {
+    flex: 1 1 220px;
+    padding: 7px 10px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    font-size: 13px;
+}
+
+/* tombol export hijau */
+.btn-admin-success {
+    display: inline-block;
+    padding: 7px 12px;
+    border-radius: 8px;
+    background-color: #16a34a;
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.btn-admin-success:hover {
+    background-color: #15803d;
+}
+
+/* tombol reset kecil di samping search */
+.btn-reset {
+    font-size: 13px;
+}
+
+
+/* detail box */
+.admin-detail-box {
+    margin-top: 14px;
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 14px 12px;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    font-size: 14px;
+}
+
+.admin-detail-box p {
+    margin-bottom: 6px;
+}
+
+.admin-actions {
+    margin-top: 14px;
+    display: flex;
+    gap: 10px;
+}
+
+.btn-admin-secondary {
+    display: inline-block;
+    padding: 7px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background-color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    color: var(--text);
+}
+
+.btn-admin-secondary:hover {
+    background-color: #f3f4f6;
+}
+
+.btn-admin-primary {
+    display: inline-block;
+    padding: 7px 12px;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--accent);
+    text-decoration: none;
+    font-size: 13px;
+    color: #fff;
+}
+
+.btn-admin-primary:hover {
+    background-color: #e96c00;
+}
+
+/* responsive */
+@media (max-width: 900px) {
+    .admin-cards {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+    }
+}
+
+@media (max-width: 700px) {
+    .admin-header-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .admin-cards {
+        grid-template-columns: minmax(0,1fr);
+    }
+
+    .admin-table {
+        font-size: 12px;
+    }
+}
