@@ -1,0 +1,149 @@
+========================================================
+DOKUMENTASI ERROR – TUGAS 3 PEMROGRAMAN WEB
+========================================================
+
+Nama : Annisa Aprilia Lestari
+NPM  : 2414101025
+
+Dokumentasi ini berisi daftar error fatal dan error kecil
+yang ditemukan pada project Tugas 3, lengkap dengan
+penjelasan penyebab dan perbaikan kodenya.
+
+========================================================
+1. ERROR FATAL 1 – Parse Error pada proses-pendaftaran-2.php
+========================================================
+
+File:
+proses-pendaftaran-2.php
+
+Lokasi:
+Baris 13
+
+Pesan Error:
+Parse error: syntax error, unexpected token "=" in
+C:\xampp\htdocs\tugas_3\proses-pendaftaran-2.php on line 13
+
+Jenis Error:
+Fatal Error – Parse / Syntax Error
+
+Penyebab:
+Variabel PHP ditulis tanpa tanda $ atau menggunakan operator "=="
+yang tidak sesuai untuk assignment. Contoh kesalahan:
+
+    sekolah = $_POST['sekolah_asal'];
+atau:
+    sekolah == $_POST['sekolah_asal'];
+
+Tanpa tanda $, PHP tidak mengenali variabel dan langsung
+menghentikan eksekusi script.
+
+Perbaikan Kode:
+
+    $sekolah = $_POST['sekolah_asal'];
+
+
+========================================================
+2. ERROR FATAL 2 – Koneksi Database Gagal (Access Denied)
+========================================================
+
+File:
+koneksi.php
+
+Lokasi:
+Baris 8
+
+Pesan Error:
+Fatal error: Uncaught mysqli_sql_exception:
+Access denied for user 'root'@'localhost' (using password: YES)
+
+Jenis Error:
+Fatal Error – Database Connection Failure
+
+Penyebab:
+Pada XAMPP default, user root tidak menggunakan password.
+Namun kode menuliskan password yang tidak sesuai.
+
+Kesalahan Kode:
+
+    $password = "12345";
+    $db = mysqli_connect("localhost", "root", "12345", "pendaftaran_siswa");
+
+MySQL menolak koneksi karena password tersebut salah.
+
+Perbaikan Kode:
+
+    $password = "";
+    $db = mysqli_connect("localhost", "root", "", "pendaftaran_siswa");
+
+
+========================================================
+3. ERROR KECIL – Kesalahan Kode (Non-Fatal)
+========================================================
+
+Error kecil berikut tidak menghentikan jalannya program,
+tetapi termasuk kesalahan penulisan kode yang perlu diperbaiki.
+
+--------------------------------------------------------
+3.1 Kesalahan DOCTYPE pada form-daftar.php
+--------------------------------------------------------
+
+File:
+form-daftar.php
+
+Kesalahan Kode:
+
+    <DOCTYPE >
+
+Ini bukan DOCTYPE yang valid.
+
+Perbaikan Kode:
+
+    <!DOCTYPE html>
+
+
+--------------------------------------------------------
+3.2 Kesalahan pada komentar (Typo)
+--------------------------------------------------------
+
+File:
+proses-pendaftaran-2.php
+
+Kesalahan Kode:
+
+    // kalau gagal alihkan ke halaman indek.ph dengan status=gagal
+
+Perbaikan Kode:
+
+    // kalau gagal alihkan ke halaman index.php dengan status=gagal
+
+
+--------------------------------------------------------
+3.3 Potensi Undefined Index (Kesalahan Penulisan Akses POST)
+--------------------------------------------------------
+
+File:
+proses-pendaftaran-2.php
+
+Kesalahan Kode:
+
+    $nama = $_POST['nama'];
+    $alamat = $_POST['alamat'];
+    $jk = $_POST['jenis_kelamin'];
+    $agama = $_POST['agama'];
+    $sekolah = $_POST['sekolah_asal'];
+
+Jika field POST tidak dikirim, PHP akan menampilkan Notice:
+"Undefined index".
+
+Perbaikan Kode (opsi aman):
+
+    $nama = $_POST['nama'] ?? '';
+    $alamat = $_POST['alamat'] ?? '';
+    $jk = $_POST['jenis_kelamin'] ?? '';
+    $agama = $_POST['agama'] ?? '';
+    $sekolah = $_POST['sekolah_asal'] ?? '';
+
+
+========================================================
+SELESAI
+========================================================
